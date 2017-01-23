@@ -21,7 +21,7 @@ namespace Pentagonal.Auth.Modules
 
                 try
                 {
-                    if (!PenguinUploadRegistry.Configuration.RegistrationEnabled)
+                    if (!PentagonalAuthenticationServices.Configuration.RegistrationRestrictions.RegistrationEnabled)
                         return Response.AsText("Account registration has been disabled by the administrator.")
                             .WithStatusCode(HttpStatusCode.Unauthorized);
 
@@ -51,9 +51,9 @@ namespace Pentagonal.Auth.Modules
                     }
 
                     // Check invite key if enabled
-                    if (PenguinUploadRegistry.Configuration.InviteKey != null)
+                    if (PentagonalAuthenticationServices.Configuration.RegistrationRestrictions.InviteKey != null)
                     {
-                        if (req.InviteKey != PenguinUploadRegistry.Configuration.InviteKey)
+                        if (req.InviteKey != PentagonalAuthenticationServices.Configuration.RegistrationRestrictions.InviteKey)
                         {
                             throw new SecurityException("The invite key is not recognized.");
                         }

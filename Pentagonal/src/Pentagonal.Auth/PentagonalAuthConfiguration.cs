@@ -1,5 +1,6 @@
 ﻿using LiteDB;
 using Nancy;
+using Pentagonal.Auth.Configuration;
 using Pentagonal.Auth.Services;
 using System;
 using System.Security.Claims;
@@ -14,6 +15,8 @@ namespace Pentagonal.Auth
         public PasswordCryptoConfiguration PasswordCryptoConfiguration { get; set; } = PasswordCryptoConfiguration.CreateDefault();
 
         public Func<NancyContext, Task<ClaimsPrincipal>> ResolveUserIdentity { get; set; } = ApiClientAuthenticationService.GetDefaultResolver();
+
+        public RegistrationRestrictions RegistrationRestrictions { get; set; } = new RegistrationRestrictions();
 
         public bool IsValid
         {

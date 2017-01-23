@@ -8,7 +8,7 @@ namespace Pentagonal.Auth
 {
     public static class PentagonalAuthenticationServices
     {
-        internal static PentagonalAuthConfiguration Configuration { get; private set; }
+        public static PentagonalAuthConfiguration Configuration { get; private set; }
 
         public static void Enable(IPipelines pipelines, PentagonalAuthConfiguration configuration)
         {
