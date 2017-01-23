@@ -6,7 +6,7 @@ using Pentagonal.Auth;
 
 namespace Pentagonal.Demo.Omnibus
 {
-    internal class Bootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : DefaultNancyBootstrapper
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
