@@ -1,3 +1,4 @@
+using LiteDB;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
@@ -16,7 +17,7 @@ namespace Pentagonal.Demo.Omnibus
             PentagonalServices.Enable(pipelines, new PentagonalConfiguration());
             PentagonalAuthenticationServices.Enable(pipelines, new PentagonalAuthConfiguration
             {
-                Database = 
+                Database = new LiteDatabase("omnibus-demo.lidb")
             });
         }
     }
