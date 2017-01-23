@@ -17,7 +17,7 @@ namespace Pentagonal.Auth
 
         Task<bool> CheckPassword(string password, RegisteredUser user);
 
-        Task<IEnumerable<RegisteredUser>> GetAllUsersAsync();
+        Task<IEnumerable<RegisteredUser>> GetAllUsers();
 
         // Management
 
@@ -31,6 +31,6 @@ namespace Pentagonal.Auth
 
         Task ChangePassword(RegisteredUser user, string newPassword);
 
-        Task GenerateNewApiKeyAsync(RegisteredUser user);
+        Task GenerateNewApiKey(RegisteredUser user);
     }
 }
