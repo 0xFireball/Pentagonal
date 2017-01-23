@@ -1,4 +1,6 @@
-﻿namespace Pentagonal.Infrastructure.Concurrency
+﻿using System.Collections.Generic;
+
+namespace Pentagonal.Infrastructure.Concurrency
 {
     public class UserServices
     {
@@ -10,15 +12,15 @@
         public UserLock UserLock { get; }
 
         /// <summary>
-        /// Throttle concurrent uploads
+        /// Resource throttle collection
         /// </summary>
-        public ResourceThrottle UploadThrottle { get; }
+        public List<ResourceThrottle> ResourceThrottles { get; }
 
         public UserServices(string username)
         {
             Username = username;
             UserLock = new UserLock();
-            UploadThrottle = new ResourceThrottle(PenguinUploadRegistry.Configuration.UserMaxConcurrentUploads);
+            ResourceThrottles = new List<ResourceThrottle>();
         }
     }
 }
