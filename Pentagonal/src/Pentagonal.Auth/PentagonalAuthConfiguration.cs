@@ -18,6 +18,8 @@ namespace Pentagonal.Auth
 
         public RegistrationRestrictions RegistrationRestrictions { get; set; } = new RegistrationRestrictions();
 
+        public AccountSecurityRequirements AccountSecurityRequirements { get; set; } = new AccountSecurityRequirements();
+
         public bool IsValid
         {
             get

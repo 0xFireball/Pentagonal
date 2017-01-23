@@ -28,26 +28,25 @@ namespace Pentagonal.Auth.Modules
                     // Validate parameters!
 
                     // Valdiate username length, charset
-                    if (req.Username.Length < 4)
+                    if (req.Username.Length < PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MinimumUsernameLength)
                     {
-                        throw new SecurityException("Username must be at least 4 characters.");
+                        throw new SecurityException($"Username must be at least {PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MinimumUsernameLength} characters.");
                     }
-                    // Validate phone number
+
+                    if (req.Username.Length > PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MaximumUsernameLength)
+                    {
+                        throw new SecurityException($"Username may not exceed {PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MaximumUsernameLength} characters.");
+                    }
 
                     // Validate password
-                    if (req.Password.Length < 8)
+                    if (req.Password.Length < PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MininumPasswordLength)
                     {
-                        throw new SecurityException("Password must be at least 8 characters.");
+                        throw new SecurityException($"Password must be at least {PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MininumPasswordLength} characters.");
                     }
 
-                    if (req.Username.Length > 24)
+                    if (req.Password.Length > PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MaximumPasswordLength)
                     {
-                        throw new SecurityException("Username may not exceed 24 characters.");
-                    }
-
-                    if (req.Password.Length > 128)
-                    {
-                        throw new SecurityException("Password may not exceed 128 characters.");
+                        throw new SecurityException($"Password may not exceed {PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MaximumPasswordLength} characters.");
                     }
 
                     // Check invite key if enabled
@@ -127,14 +126,14 @@ namespace Pentagonal.Auth.Modules
                 try
                 {
                     // Validate password
-                    if (req.NewPassword.Length < 8)
+                    if (req.NewPassword.Length < PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MininumPasswordLength)
                     {
-                        throw new SecurityException("Password must be at least 8 characters.");
+                        throw new SecurityException($"Password must be at least {PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MininumPasswordLength} characters.");
                     }
 
-                    if (req.NewPassword.Length > 128)
+                    if (req.NewPassword.Length > PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MaximumPasswordLength)
                     {
-                        throw new SecurityException("Password may not exceed 128 characters.");
+                        throw new SecurityException($"Password may not exceed {PentagonalAuthenticationServices.Configuration.AccountSecurityRequirements.MaximumPasswordLength} characters.");
                     }
 
                     if (selectedUser.Enabled && await webUserManager.CheckPassword(req.OldPassword, selectedUser))
