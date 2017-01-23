@@ -13,22 +13,7 @@ namespace Pentagonal.Auth
         public string UserTableName { get; set; } = "Pentagonal.Auth.Users";
         public PasswordCryptoConfiguration PasswordCryptoConfiguration { get; set; } = PasswordCryptoConfiguration.CreateDefault();
 
-        public Func<NancyContext, Task<ClaimsPrincipal>> ResolveUserIdentity { get; set; } = async (ctx) =>
-        {
-            // Check for the API key
-            string accessToken = null;
-            if (ctx.Request.Query.apikey.HasValue)
-            {
-                accessToken = ctx.Request.Query.apikey;
-            }
-            else if (ctx.Request.Form["apikey"].HasValue)
-            {
-                accessToken = ctx.Request.Form["apikey"];
-            }
-
-            // Authenticate the request
-            return accessToken == null ? null : await ApiClientAuthenticationService.ResolveClientIdentity(accessToken);
-        };
+        public Func<NancyContext, Task<ClaimsPrincipal>> ResolveUserIdentity { get; set; } = ApiClientAuthenticationService.GetDefaultResolver();
 
         public bool IsValid
         {

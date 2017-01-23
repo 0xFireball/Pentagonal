@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿using Nancy;
+using System;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
@@ -23,6 +25,26 @@ namespace Pentagonal.Auth.Services
                 }
             ));
             return id;
+        }
+
+        internal static Func<NancyContext, Task<ClaimsPrincipal>> GetDefaultResolver()
+        {
+            return async (ctx) =>
+            {
+                // Check for the API key
+                string accessToken = null;
+                if (ctx.Request.Query.apikey.HasValue)
+                {
+                    accessToken = ctx.Request.Query.apikey;
+                }
+                else if (ctx.Request.Form["apikey"].HasValue)
+                {
+                    accessToken = ctx.Request.Form["apikey"];
+                }
+
+                // Authenticate the request
+                return accessToken == null ? null : await ApiClientAuthenticationService.ResolveClientIdentity(accessToken);
+            };
         }
     }
 }
