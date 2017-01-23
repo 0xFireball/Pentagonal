@@ -6,8 +6,7 @@ namespace Pentagonal.Demo.Omnibus.Modules
     {
         public HomeModule()
         {
-            Get("/", _ => View["index"]);
-            Get("/hello", _ => "Hello, World from Pentagonal.Demo.Omnibus!");
+            Get("/", _ => "Hello, World from Pentagonal.Demo.Omnibus!");
         }
     }
 }
