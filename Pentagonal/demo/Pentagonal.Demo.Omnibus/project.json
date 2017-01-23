@@ -9,14 +9,16 @@
       "type": "platform",
       "version": "1.1.0"
     },
-    "Newtonsoft.Json": "*",
+    "Newtonsoft.Json": "9.0.1",
     "Nancy": "2.0.0-clinteastwood",
     "Microsoft.AspNetCore.Hosting": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
     "Microsoft.AspNetCore.Owin": "1.0.0",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
     "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0"
+    "Microsoft.Extensions.Configuration.Json": "1.0.0",
+    "Pentagonal": "1.0.0-*",
+    "Pentagonal.Auth": "1.0.0-*"
   },
   "frameworks": {
     "netcoreapp1.1": {

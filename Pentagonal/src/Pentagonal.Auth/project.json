@@ -5,7 +5,7 @@
     "LiteDB": "3.0.0",
     "Nancy": "2.0.0-clinteastwood",
     "NETStandard.Library": "1.6.0",
-    "Newtonsoft.Json": "9.0.2-beta2",
+    "Newtonsoft.Json": "9.0.1",
     "Pentagonal": "1.0.0-*"
   },
 

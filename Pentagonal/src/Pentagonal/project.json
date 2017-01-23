@@ -3,6 +3,7 @@
 
   "dependencies": {
     "Nancy": "2.0.0-clinteastwood",
+    "Newtonsoft.Json": "9.0.1",
     "NETStandard.Library": "1.6.0"
   },
 
