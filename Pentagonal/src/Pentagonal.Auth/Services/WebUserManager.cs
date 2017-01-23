@@ -153,10 +153,10 @@ namespace Pentagonal.Auth.Services
             {
                 // Recompute password crypto
                 var cryptoConf = PasswordCryptoConfiguration.CreateDefault();
-                var pwSalt = AuthCryptoHelper.GetRandomSalt(AuthCryptoHelper.DefaultSaltLength);
+                var salt = AuthCryptoHelper.GetRandomSalt(AuthCryptoHelper.DefaultSaltLength);
                 var encryptedPassword =
-                    AuthCryptoHelper.CalculateUserPasswordHash(newPassword, pwSalt, cryptoConf);
-                user.CryptoSalt = pwSalt;
+                    AuthCryptoHelper.CalculateUserPasswordHash(newPassword, salt, cryptoConf);
+                user.CryptoSalt = salt;
                 user.PasswordCryptoConf = cryptoConf;
                 user.PasswordKey = encryptedPassword;
             }));
