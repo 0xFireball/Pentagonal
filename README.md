@@ -15,7 +15,7 @@ details. See the features list.
 You can choose whatever services you want to install
 into your NFx app and install them in the Bootstrapper.
 
-See the documentation (WIP) for more information.
+See the [documentation](https://github.com/0xFireball/Pentagonal/wiki/Getting-Started) for a Quick Start!
 
 ## Features
 
