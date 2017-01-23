@@ -1,5 +1,8 @@
 {
-  "version": "1.0.0-*",
+  "title": "Pentagonal",
+  "copyright": "Copyright 2017 © 0xFireball (Nihal Talur). All Rights Reserved.",
+  "description": "Pentagonal Core",
+  "version": "1.1.0-*",
 
   "dependencies": {
     "Nancy": "2.0.0-clinteastwood",

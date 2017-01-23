@@ -1,12 +1,15 @@
 {
-  "version": "1.0.0-*",
+  "title": "Pentagonal.Auth",
+  "copyright": "Copyright 2017 © 0xFireball (Nihal Talur). All Rights Reserved.",
+  "description": "Pentagonal Auth library",
+  "version": "1.1.0-*",
 
   "dependencies": {
     "LiteDB": "3.0.0",
     "Nancy": "2.0.0-clinteastwood",
     "NETStandard.Library": "1.6.0",
     "Newtonsoft.Json": "9.0.1",
-    "Pentagonal": "1.0.0-*"
+    "Pentagonal": "*"
   },
 
   "frameworks": {
