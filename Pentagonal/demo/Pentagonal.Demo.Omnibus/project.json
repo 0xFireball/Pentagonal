@@ -18,7 +18,8 @@
     "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Pentagonal": "1.0.0-*",
-    "Pentagonal.Auth": "1.0.0-*"
+    "Pentagonal.Auth": "1.0.0-*",
+    "LiteDB": "3.0.0"
   },
   "frameworks": {
     "netcoreapp1.1": {

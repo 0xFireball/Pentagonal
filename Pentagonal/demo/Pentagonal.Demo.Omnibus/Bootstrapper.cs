@@ -1,16 +1,23 @@
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
+using Pentagonal.Auth;
 
 namespace Pentagonal.Demo.Omnibus
 {
-    class Bootstrapper : DefaultNancyBootstrapper
+    internal class Bootstrapper : DefaultNancyBootstrapper
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
 
-            // TODO: Your customization
+            // Install Pentagonal services
+
+            PentagonalServices.Enable(pipelines, new PentagonalConfiguration());
+            PentagonalAuthenticationServices.Enable(pipelines, new PentagonalAuthConfiguration
+            {
+                Database = 
+            });
         }
     }
 }
