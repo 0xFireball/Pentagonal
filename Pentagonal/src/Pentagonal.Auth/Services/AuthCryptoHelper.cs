@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace PenguinUpload.Services.Authentication
+namespace Pentagonal.Auth.Services
 {
     internal class AuthCryptoHelper
     {

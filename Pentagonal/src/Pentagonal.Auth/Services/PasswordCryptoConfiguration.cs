@@ -1,4 +1,4 @@
-﻿namespace PenguinUpload.Services.Authentication
+﻿namespace Pentagonal.Auth.Services
 {
     public class PasswordCryptoConfiguration
     {
