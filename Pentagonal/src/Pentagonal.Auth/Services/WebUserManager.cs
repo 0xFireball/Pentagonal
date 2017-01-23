@@ -110,7 +110,7 @@ namespace Pentagonal.Auth.Services
         public async Task<bool> CheckPassword(string password, RegisteredUser user)
         {
             var ret = false;
-            var lockEntry = PenguinUploadRegistry.ServiceTable.GetOrCreate(user.Username).UserLock;
+            var lockEntry = PentagonalServices.Configuration.ServiceTable.GetOrCreate(user.Username).UserLock;
             await lockEntry.WithConcurrentRead(Task.Run(() =>
             {
                 //Calculate hash and compare
@@ -139,7 +139,7 @@ namespace Pentagonal.Auth.Services
 
         public async Task SetEnabled(RegisteredUser user, bool status)
         {
-            var lockEntry = PenguinUploadRegistry.ServiceTable.GetOrCreate(user.Username).UserLock;
+            var lockEntry = PentagonalServices.Configuration.ServiceTable.GetOrCreate(user.Username).UserLock;
             await lockEntry.ObtainExclusiveWriteAsync();
             user.Enabled = status;
             await UpdateUserInDatabase(user);
@@ -148,7 +148,7 @@ namespace Pentagonal.Auth.Services
 
         public async Task ChangePassword(RegisteredUser user, string newPassword)
         {
-            var lockEntry = PenguinUploadRegistry.ServiceTable.GetOrCreate(user.Username).UserLock;
+            var lockEntry = PentagonalServices.Configuration.ServiceTable.GetOrCreate(user.Username).UserLock;
             await lockEntry.WithExclusiveWrite(Task.Run(() =>
             {
                 // Recompute password crypto
@@ -164,7 +164,7 @@ namespace Pentagonal.Auth.Services
 
         public async Task GenerateNewApiKey(RegisteredUser user)
         {
-            var lockEntry = PenguinUploadRegistry.ServiceTable.GetOrCreate(user.Username).UserLock;
+            var lockEntry = PentagonalServices.Configuration.ServiceTable.GetOrCreate(user.Username).UserLock;
             await lockEntry.WithExclusiveWrite(Task.Run(() =>
             {
                 // Recompute key
