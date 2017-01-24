@@ -1,4 +1,4 @@
-﻿namespace Pentagonal.Auth.Services
+﻿namespace Pentagonal.Auth.Configuration
 {
     public class PasswordCryptoConfiguration
     {
