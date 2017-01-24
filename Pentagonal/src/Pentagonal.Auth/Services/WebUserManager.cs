@@ -1,4 +1,5 @@
 ﻿using PenguinUpload.Utilities;
+using Pentagonal.Auth.Configuration;
 using Pentagonal.Auth.Models;
 using System;
 using System.Collections;

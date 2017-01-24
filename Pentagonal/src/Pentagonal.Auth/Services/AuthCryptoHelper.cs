@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using Pentagonal.Auth.Configuration;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Pentagonal.Auth.Services

@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Pentagonal.Auth.Services;
+using Pentagonal.Auth.Configuration;
 
 namespace Pentagonal.Auth.Models
 {
